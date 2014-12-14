@@ -5,12 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CalculatorActivity"
-    tools:deviceIds="wear_round">
+    tools:deviceIds="wear_round"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/equal_key"
+        android:text="=" />
 
     <ucsoftworks.com.rondocalc.widget.CircleLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_margin="35dp"
+        android:layout_margin="40dp"
         circle:angleOffset="53">
 
         <TextView
@@ -18,108 +26,164 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:textColor="@color/display_text"
             android:text="0" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_width="@dimen/operator_size"
+            android:layout_height="@dimen/operator_size"
+            android:background="@drawable/operator_key_selector"
+            android:textColor="@color/operator_key"
+            android:clickable="true"
+            android:gravity="center"
             android:text="+" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/operator_size"
+            android:layout_height="@dimen/operator_size"
+            android:gravity="center"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:textColor="@color/operator_key"
+            android:background="@drawable/operator_key_selector"
+            android:clickable="true"
             android:text="-" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/operator_size"
+            android:layout_height="@dimen/operator_size"
+            android:gravity="center"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:textColor="@color/operator_key"
+            android:background="@drawable/operator_key_selector"
+            android:clickable="true"
             android:text="*" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/operator_size"
+            android:layout_height="@dimen/operator_size"
+            android:gravity="center"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:textColor="@color/operator_key"
+            android:background="@drawable/operator_key_selector"
+            android:clickable="true"
             android:text="/" />
     </ucsoftworks.com.rondocalc.widget.CircleLayout>
+
     <ucsoftworks.com.rondocalc.widget.CircleLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         circle:angleOffset="-105.1">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+
+            android:layout_width="@dimen/num_key_size"
+            android:layout_height="@dimen/num_key_size"
+            android:background="@drawable/num_key_selector"
+            android:textColor="@color/num_key"
+            android:clickable="true"
+            android:gravity="center"
             android:text="0" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_width="@dimen/num_key_size"
+            android:layout_height="@dimen/num_key_size"
+            android:gravity="center"
+            android:background="@drawable/num_key_selector"
+            android:textColor="@color/num_key"
+            android:clickable="true"
             android:text="1" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_width="@dimen/num_key_size"
+            android:layout_height="@dimen/num_key_size"
+            android:gravity="center"
+            android:background="@drawable/num_key_selector"
+            android:textColor="@color/num_key"
+            android:clickable="true"
             android:text="2" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_width="@dimen/num_key_size"
+            android:layout_height="@dimen/num_key_size"
+            android:gravity="center"
+            android:background="@drawable/num_key_selector"
+            android:textColor="@color/num_key"
+            android:clickable="true"
             android:text="3" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_width="@dimen/num_key_size"
+            android:layout_height="@dimen/num_key_size"
+            android:gravity="center"
+            android:background="@drawable/num_key_selector"
+            android:textColor="@color/num_key"
+            android:clickable="true"
             android:text="4" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_width="@dimen/num_key_size"
+            android:layout_height="@dimen/num_key_size"
+            android:gravity="center"
+            android:background="@drawable/num_key_selector"
+            android:textColor="@color/num_key"
+            android:clickable="true"
             android:text="5" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_width="@dimen/num_key_size"
+            android:layout_height="@dimen/num_key_size"
+            android:gravity="center"
+            android:background="@drawable/num_key_selector"
+            android:textColor="@color/num_key"
+            android:clickable="true"
             android:text="6" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_width="@dimen/num_key_size"
+            android:layout_height="@dimen/num_key_size"
+            android:gravity="center"
+            android:background="@drawable/num_key_selector"
+            android:textColor="@color/num_key"
+            android:clickable="true"
             android:text="7" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_width="@dimen/num_key_size"
+            android:layout_height="@dimen/num_key_size"
+            android:gravity="center"
+            android:background="@drawable/num_key_selector"
+            android:textColor="@color/num_key"
+            android:clickable="true"
             android:text="8" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_width="@dimen/num_key_size"
+            android:layout_height="@dimen/num_key_size"
+            android:gravity="center"
+            android:background="@drawable/num_key_selector"
+            android:textColor="@color/num_key"
+            android:clickable="true"
             android:text="9" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_width="@dimen/num_key_size"
+            android:layout_height="@dimen/num_key_size"
+            android:gravity="center"
+            android:background="@drawable/num_key_selector"
+            android:textColor="@color/num_key"
+            android:clickable="true"
             android:text="." />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_width="@dimen/num_key_size"
+            android:layout_height="@dimen/num_key_size"
+            android:gravity="center"
+            android:background="@drawable/num_key_selector"
+            android:textColor="@color/num_key"
+            android:clickable="true"
             android:text="C" />
     </ucsoftworks.com.rondocalc.widget.CircleLayout>
 </RelativeLayout>
