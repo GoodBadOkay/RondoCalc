@@ -18,3 +18,8 @@ FBReader.htb
 .rds_delta
 .sign
 sublime.*
+author-signature.xml
+signature1.xml
+config.xml
+.project
+.tproject
