@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".CalculatorActivity"
     tools:deviceIds="wear_round"
-    android:background="#ffddaa">
+    android:background="#000000">
 
     <Button
         android:id="@+id/key_equal"

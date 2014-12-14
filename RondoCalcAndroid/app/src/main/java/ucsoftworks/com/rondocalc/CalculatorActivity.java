@@ -11,6 +11,7 @@ public class CalculatorActivity extends Activity {
 
     private TextView display;
     private boolean dotWasPressed = false;
+    private boolean allowCompletion = false;
     private CalculatorState calculatorState = CalculatorState.NOT_QUEUED;
     private float lastNum = 0;
 
@@ -107,12 +108,17 @@ public class CalculatorActivity extends Activity {
     }
 
     private void numKeyPressed(int num) {
-        String displayText = display.getText().toString();
-        if (displayText.length() < 11) {
-            if (displayText.equals("0") || calculatorState != CalculatorState.NOT_QUEUED) {
-                display.setText(String.valueOf(num));
-            } else
-                display.setText(displayText + String.valueOf(num));
+        if (allowCompletion) {
+            String displayText = display.getText().toString();
+            if (displayText.length() < 11) {
+                if (displayText.equals("0")) {
+                    display.setText(String.valueOf(num));
+                } else
+                    display.setText(displayText + String.valueOf(num));
+            }
+        } else {
+            allowCompletion = true;
+            display.setText(String.valueOf(num));
         }
     }
 
@@ -131,12 +137,14 @@ public class CalculatorActivity extends Activity {
         display.setText("0");
         dotWasPressed = false;
         lastNum = 0;
+        allowCompletion = true;
         calculatorState = CalculatorState.NOT_QUEUED;
     }
 
     private void operatorKeyPressed(CalculatorState buttonType) {
         String displayText = display.getText().toString();
         float currentNum = Float.valueOf(displayText);
+        allowCompletion = false;
         switch (calculatorState) {
             case NOT_QUEUED:
                 break;
