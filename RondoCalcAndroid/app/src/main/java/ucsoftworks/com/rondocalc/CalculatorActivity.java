@@ -3,14 +3,16 @@ package ucsoftworks.com.rondocalc;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.wearable.view.WatchViewStub;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class CalculatorActivity extends Activity {
 
-    TextView display;
-    boolean dotWasPressed = false;
+    private TextView display;
+    private boolean dotWasPressed = false;
+    private CalculatorState calculatorState = CalculatorState.NOT_QUEUED;
+    private float lastNum = 0;
 
 
     @Override
@@ -23,6 +25,14 @@ public class CalculatorActivity extends Activity {
             public void onLayoutInflated(WatchViewStub stub) {
                 display = (TextView) stub.findViewById(R.id.display_text);
 
+                setExtraKeys(stub);
+
+                setOperatorKeys(stub);
+
+                setNumKeysOnClickListeners(stub);
+            }
+
+            private void setExtraKeys(WatchViewStub stub) {
                 TextView key;
                 key = (TextView) stub.findViewById(R.id.keyDot);
                 key.setOnClickListener(new View.OnClickListener() {
@@ -32,8 +42,53 @@ public class CalculatorActivity extends Activity {
                     }
                 });
 
+                key = (TextView) stub.findViewById(R.id.keyC);
+                key.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        clearKeyPressed();
+                    }
+                });
+            }
 
-                setNumKeysOnClickListeners(stub);
+            private void setOperatorKeys(WatchViewStub stub) {
+                TextView key;
+                Button button = (Button) stub.findViewById(R.id.key_equal);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        operatorKeyPressed(CalculatorState.NOT_QUEUED);
+                    }
+                });
+                key = (TextView) stub.findViewById(R.id.key_plus);
+                key.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        operatorKeyPressed(CalculatorState.PLUS);
+                    }
+                });
+                key = (TextView) stub.findViewById(R.id.key_minus);
+                key.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        operatorKeyPressed(CalculatorState.MINUS);
+                    }
+                });
+                key = (TextView) stub.findViewById(R.id.key_mul);
+                key.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        operatorKeyPressed(CalculatorState.MUL);
+                    }
+                });
+                key = (TextView) stub.findViewById(R.id.key_divide);
+                key.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        operatorKeyPressed(CalculatorState.DIV);
+                    }
+                });
+
             }
 
             private void setNumKeysOnClickListeners(WatchViewStub stub) {
@@ -54,7 +109,7 @@ public class CalculatorActivity extends Activity {
     private void numKeyPressed(int num) {
         String displayText = display.getText().toString();
         if (displayText.length() < 11) {
-            if (displayText.equals("0")) {
+            if (displayText.equals("0") || calculatorState != CalculatorState.NOT_QUEUED) {
                 display.setText(String.valueOf(num));
             } else
                 display.setText(displayText + String.valueOf(num));
@@ -70,6 +125,39 @@ public class CalculatorActivity extends Activity {
             else
                 display.setText(displayText + ".");
         }
+    }
+
+    private void clearKeyPressed() {
+        display.setText("0");
+        dotWasPressed = false;
+        lastNum = 0;
+        calculatorState = CalculatorState.NOT_QUEUED;
+    }
+
+    private void operatorKeyPressed(CalculatorState buttonType) {
+        String displayText = display.getText().toString();
+        float currentNum = Float.valueOf(displayText);
+        switch (calculatorState) {
+            case NOT_QUEUED:
+                break;
+            case PLUS:
+                display.setText(String.valueOf(lastNum + currentNum));
+                break;
+            case MINUS:
+                display.setText(String.valueOf(lastNum - currentNum));
+                break;
+            case MUL:
+                display.setText(String.valueOf(lastNum * currentNum));
+                break;
+            case DIV:
+                if (currentNum != 0)
+                    display.setText(String.valueOf(lastNum / currentNum));
+                else
+                    return;
+                break;
+        }
+        lastNum = currentNum;
+        calculatorState = buttonType;
     }
 
 }
