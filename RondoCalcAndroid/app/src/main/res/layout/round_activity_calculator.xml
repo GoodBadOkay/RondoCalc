@@ -30,6 +30,7 @@
             android:layout_centerVertical="true"
             android:textColor="@color/display_text"
             android:background="@color/white"
+            android:singleLine="true"
             android:gravity="end"
             android:paddingEnd="3dp"
             android:paddingStart="3dp"

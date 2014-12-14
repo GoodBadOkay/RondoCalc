@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".CalculatorActivity"
     tools:deviceIds="wear_round"
-    android:background="#ffddaa">
+    android:background="#000000">
 
     <Button
         android:id="@+id/key_equal"
@@ -30,6 +30,7 @@
             android:layout_centerVertical="true"
             android:textColor="@color/display_text"
             android:background="@color/white"
+            android:singleLine="true"
             android:gravity="end"
             android:paddingEnd="3dp"
             android:paddingStart="3dp"
