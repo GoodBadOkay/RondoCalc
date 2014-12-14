@@ -1,0 +1,299 @@
+/**
+ * Mixin to put items on a circle
+ * [1] - Allows children to be absolutely positioned
+ * [2] - Allows the mixin to be used on a list
+ * [3] - In case box-sizing: border-box has been enabled
+ * [4] - Allows any type of direct children to be targeted
+ */
+.circle-container {
+  position: relative;
+  /* [1] */
+  width: 8em;
+  height: 8em;
+  padding: 0;
+  border-radius: 50%;
+  list-style: none;
+  /* [2] */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  /* [3] */
+  margin: 5em auto 0;
+  border: solid 0px tomato;
+}
+.circle-container > * {
+  /* [4] */
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1em;
+  margin: -0.5em;
+}
+.circle-container > *:nth-of-type(1) {
+  -moz-transform: rotate(0deg) translate(4em) rotate(-0deg);
+  -ms-transform: rotate(0deg) translate(4em) rotate(-0deg);
+  -webkit-transform: rotate(0deg) translate(4em) rotate(-0deg);
+  transform: rotate(0deg) translate(4em) rotate(-0deg);
+}
+.circle-container > *:nth-of-type(2) {
+  -moz-transform: rotate(30deg) translate(4em) rotate(-30deg);
+  -ms-transform: rotate(30deg) translate(4em) rotate(-30deg);
+  -webkit-transform: rotate(30deg) translate(4em) rotate(-30deg);
+  transform: rotate(30deg) translate(4em) rotate(-30deg);
+}
+.circle-container > *:nth-of-type(3) {
+  -moz-transform: rotate(60deg) translate(4em) rotate(-60deg);
+  -ms-transform: rotate(60deg) translate(4em) rotate(-60deg);
+  -webkit-transform: rotate(60deg) translate(4em) rotate(-60deg);
+  transform: rotate(60deg) translate(4em) rotate(-60deg);
+}
+.circle-container > *:nth-of-type(4) {
+  -moz-transform: rotate(90deg) translate(4em) rotate(-90deg);
+  -ms-transform: rotate(90deg) translate(4em) rotate(-90deg);
+  -webkit-transform: rotate(90deg) translate(4em) rotate(-90deg);
+  transform: rotate(90deg) translate(4em) rotate(-90deg);
+}
+.circle-container > *:nth-of-type(5) {
+  -moz-transform: rotate(120deg) translate(4em) rotate(-120deg);
+  -ms-transform: rotate(120deg) translate(4em) rotate(-120deg);
+  -webkit-transform: rotate(120deg) translate(4em) rotate(-120deg);
+  transform: rotate(120deg) translate(4em) rotate(-120deg);
+}
+.circle-container > *:nth-of-type(6) {
+  -moz-transform: rotate(150deg) translate(4em) rotate(-150deg);
+  -ms-transform: rotate(150deg) translate(4em) rotate(-150deg);
+  -webkit-transform: rotate(150deg) translate(4em) rotate(-150deg);
+  transform: rotate(150deg) translate(4em) rotate(-150deg);
+}
+.circle-container > *:nth-of-type(7) {
+  -moz-transform: rotate(180deg) translate(4em) rotate(-180deg);
+  -ms-transform: rotate(180deg) translate(4em) rotate(-180deg);
+  -webkit-transform: rotate(180deg) translate(4em) rotate(-180deg);
+  transform: rotate(180deg) translate(4em) rotate(-180deg);
+}
+.circle-container > *:nth-of-type(8) {
+  -moz-transform: rotate(210deg) translate(4em) rotate(-210deg);
+  -ms-transform: rotate(210deg) translate(4em) rotate(-210deg);
+  -webkit-transform: rotate(210deg) translate(4em) rotate(-210deg);
+  transform: rotate(210deg) translate(4em) rotate(-210deg);
+}
+.circle-container > *:nth-of-type(9) {
+  -moz-transform: rotate(240deg) translate(4em) rotate(-240deg);
+  -ms-transform: rotate(240deg) translate(4em) rotate(-240deg);
+  -webkit-transform: rotate(240deg) translate(4em) rotate(-240deg);
+  transform: rotate(240deg) translate(4em) rotate(-240deg);
+}
+.circle-container > *:nth-of-type(10) {
+  -moz-transform: rotate(270deg) translate(4em) rotate(-270deg);
+  -ms-transform: rotate(270deg) translate(4em) rotate(-270deg);
+  -webkit-transform: rotate(270deg) translate(4em) rotate(-270deg);
+  transform: rotate(270deg) translate(4em) rotate(-270deg);
+}
+.circle-container > *:nth-of-type(11) {
+  -moz-transform: rotate(300deg) translate(4em) rotate(-300deg);
+  -ms-transform: rotate(300deg) translate(4em) rotate(-300deg);
+  -webkit-transform: rotate(300deg) translate(4em) rotate(-300deg);
+  transform: rotate(300deg) translate(4em) rotate(-300deg);
+}
+.circle-container > *:nth-of-type(12) {
+  -moz-transform: rotate(330deg) translate(4em) rotate(-330deg);
+  -ms-transform: rotate(330deg) translate(4em) rotate(-330deg);
+  -webkit-transform: rotate(330deg) translate(4em) rotate(-330deg);
+  transform: rotate(330deg) translate(4em) rotate(-330deg);
+}
+.circle-container a {
+  display: block;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0px tomato;
+}
+.circle-container img {
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.circle-container img:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+
+.circle-container1 {
+  position: relative;
+  /* [1] */
+  width: 3em;
+  height: 3em;
+  padding: 0;
+  border-radius: 50%;
+  list-style: none;
+  /* [2] */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  /* [3] */
+  margin: -5.5em auto 0;
+  border: solid 0px tomato;
+}
+.circle-container1 > * {
+  /* [4] */
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1em;
+  margin: -0.5em;
+}
+.circle-container1 > *:nth-of-type(1) {
+  -moz-transform: rotate(0deg) translate(1.5em) rotate(-0deg);
+  -ms-transform: rotate(0deg) translate(1.5em) rotate(-0deg);
+  -webkit-transform: rotate(0deg) translate(1.5em) rotate(-0deg);
+  transform: rotate(0deg) translate(1.5em) rotate(-0deg);
+}
+.circle-container1 > *:nth-of-type(2) {
+  -moz-transform: rotate(45deg) translate(1.5em) rotate(-45deg);
+  -ms-transform: rotate(45deg) translate(1.5em) rotate(-45deg);
+  -webkit-transform: rotate(45deg) translate(1.5em) rotate(-45deg);
+  transform: rotate(45deg) translate(1.5em) rotate(-45deg);
+}
+.circle-container1 > *:nth-of-type(3) {
+  -moz-transform: rotate(90deg) translate(1.5em) rotate(-90deg);
+  -ms-transform: rotate(90deg) translate(1.5em) rotate(-90deg);
+  -webkit-transform: rotate(90deg) translate(1.5em) rotate(-90deg);
+  transform: rotate(90deg) translate(1.5em) rotate(-90deg);
+}
+.circle-container1 > *:nth-of-type(4) {
+  -moz-transform: rotate(135deg) translate(1.5em) rotate(-135deg);
+  -ms-transform: rotate(135deg) translate(1.5em) rotate(-135deg);
+  -webkit-transform: rotate(135deg) translate(1.5em) rotate(-135deg);
+  transform: rotate(135deg) translate(1.5em) rotate(-135deg);
+}
+.circle-container1 > *:nth-of-type(5) {
+  -moz-transform: rotate(180deg) translate(1.5em) rotate(-180deg);
+  -ms-transform: rotate(180deg) translate(1.5em) rotate(-180deg);
+  -webkit-transform: rotate(180deg) translate(1.5em) rotate(-180deg);
+  transform: rotate(180deg) translate(1.5em) rotate(-180deg);
+}
+.circle-container1 > *:nth-of-type(6) {
+  -moz-transform: rotate(225deg) translate(1.5em) rotate(-225deg);
+  -ms-transform: rotate(225deg) translate(1.5em) rotate(-225deg);
+  -webkit-transform: rotate(225deg) translate(1.5em) rotate(-225deg);
+  transform: rotate(225deg) translate(1.5em) rotate(-225deg);
+}
+.circle-container1 > *:nth-of-type(7) {
+  -moz-transform: rotate(270deg) translate(1.5em) rotate(-270deg);
+  -ms-transform: rotate(270deg) translate(1.5em) rotate(-270deg);
+  -webkit-transform: rotate(270deg) translate(1.5em) rotate(-270deg);
+  transform: rotate(270deg) translate(1.5em) rotate(-270deg);
+}
+.circle-container1 > *:nth-of-type(8) {
+  -moz-transform: rotate(315deg) translate(1.5em) rotate(-315deg);
+  -ms-transform: rotate(315deg) translate(1.5em) rotate(-315deg);
+  -webkit-transform: rotate(315deg) translate(1.5em) rotate(-315deg);
+  transform: rotate(315deg) translate(1.5em) rotate(-315deg);
+}
+.circle-container1 a {
+  display: block;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0px tomato;
+}
+.circle-container1 img {
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.circle-container1 img:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+
+.numLabel {
+  margin-top: -42p;
+  text-align: center;
+  width: 75%;
+  backgound-color: red;
+  margin-top: 0em;
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.numLabel:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+
+.aequals {
+  margin-top: -42p;
+  margin-left: -42p;
+  text-align: center;
+  width: 75%;
+  backgound-color: red;
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.aequals:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+
+.numLabel {
+  margin-top: -42p;
+  text-align: center;
+  width: 75%;
+  backgound-color: red;
+  margin-top: 0em;
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.numLabel:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+
+.aequals {
+  margin-top: -2em;
+  margin-left: -42p;
+  text-align: center;
+  width: 75%;
+  backgound-color: red;
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.amem {
+  margin-top: -1em;
+  margin-left: -42p;
+  text-align: center;
+  width: 75%;
+  backgound-color: red;
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.aequals:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+
+.amem:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}

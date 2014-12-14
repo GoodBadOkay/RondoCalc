@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,user-scalable=no"/>
+	<title>Wearable UI</title>
+	<link rel="stylesheet"  href="lib/tau/wearable/theme/default/tau.min.css">
+	<!-- load theme file for your application -->
+	<link rel="stylesheet"  href="css/style.css">
+	<link rel="stylesheet"  href="css/circle_container.css">
+</head>
+<body>
+						<ul class='circle-container'>
+			  <li><a onclick="addToLabel(3)"  href='#'>3</a></li>
+			  <li><a onclick="addToLabel(4)"  href='#'>4</a></li>
+			  <li><a onclick="addToLabel(5)"  href='#'>5</a></li>
+			  <li><a onclick="addToLabel(6)"  href='#'>6</a></li>
+			  <li><a onclick="addToLabel(7)"  href='#'>7</a></li>
+			  <li><a onclick="addToLabel(8)"  href='#'>8</a></li>
+			  <li><a onclick="addToLabel(9)"  href='#'>9</a></li>
+			  <li><a onclick="addDotToLabel()" href='#'>.</a></li>
+			  <li><a onclick="fullReset()"  href='#'>C</a></li>
+			  <li><a onclick="addToLabel(0)"  href='#'>0</a></li>
+			  <li><a onclick="addToLabel(1)" href='#'>1</a></li>
+			  <li><a onclick="addToLabel(2)"  href='#'>2</a></li>
+			</ul>
+
+        
+
+         <ul class='circle-container1'>
+			    <li><a onclick="devide()" href='#'>&nbsp/</a></li>
+			    <li><a href='#'></a></li>
+			    <li><a href='#'></a></li>
+			    <li><a href='#'></a></li>
+			    <li><a onclick="plus()" href='#'>+</a></li>
+			    <li><a onclick="minus()" href='#'>-</a></li>
+			    <li><a onclick="memRead()" href='#'>M</a></li>
+			    <li><a onclick="multiply()" href='#'>*</a></li>
+			  </ul>
+  
+
+        <a class='aequals'  onclick="calculateNow()" href='#'>  =</a>
+			  <p  class='numLabel' id="serverTime">0</p>
+        <a class='amem' onclick="memSet()" href='#'>M+</a>
+</body>
+<script type="text/javascript" src="lib/tau/wearable/js/tau.min.js"></script>
+<!-- load javascript file for your application -->
+<script src="js/app.js"></script>
+<script src="js/lowBatteryCheck.js"></script>
+<script src="js/circle.js"></script>
+</html>
