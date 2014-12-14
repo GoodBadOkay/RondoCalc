@@ -164,7 +164,7 @@ public class CalculatorActivity extends Activity {
                     return;
                 break;
         }
-        lastNum = currentNum;
+        lastNum = Float.valueOf(display.getText().toString());
         calculatorState = buttonType;
     }
 
