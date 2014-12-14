@@ -1,60 +1,65 @@
-(function() {
+( function () {
 	var systeminfo = {
 
-		systeminfo : null,
+		systeminfo: null,
 
 		lowThreshold : 0.04,
 
-		listenBatteryLowState : function() {
+		listenBatteryLowState: function(){
 			var self = this;
 			try {
-				this.systeminfo.addPropertyValueChangeListener('BATTERY',
-						function change(battery) {
-							if (!battery.isCharging) {
-								try {
-									tizen.application.getCurrentApplication()
-											.exit();
-								} catch (ignore) {
-								}
+				this.systeminfo.addPropertyValueChangeListener(
+					'BATTERY',
+					function change(battery){
+						if(!battery.isCharging) {
+							try {
+								tizen.application.getCurrentApplication().exit();
+							} catch (ignore) {
 							}
-						}, {
-							lowThreshold : self.lowThreshold
-						}, onError);
+						}
+					},
+					{
+						lowThreshold : self.lowThreshold
+					},
+					onError
+				);
 			} catch (ignore) {
 			}
 		},
 
-		checkBatteryLowState : function() {
+		checkBatteryLowState: function(){
 			var self = this;
 			try {
-				this.systeminfo.getPropertyValue('BATTERY', function(battery) {
-					if (battery.level < self.lowThreshold
-							&& !battery.isCharging) {
-						try {
-							tizen.application.getCurrentApplication().exit();
-						} catch (ignore) {
+				this.systeminfo.getPropertyValue(
+					'BATTERY',
+					function(battery) {
+						if(battery.level < self.lowThreshold && !battery.isCharging) {
+							try {
+								tizen.application.getCurrentApplication().exit();
+							} catch (ignore) {
+							}
 						}
-					}
-				}, null);
+					},
+					null);
 			} catch (ignore) {
 			}
 		},
 
-		init : function() {
-			if (typeof tizen === 'object'
-					&& typeof tizen.systeminfo === 'object') {
+		init: function(){
+			if (typeof tizen === 'object' && typeof tizen.systeminfo === 'object'){
 				this.systeminfo = tizen.systeminfo;
 				this.checkBatteryLowState();
 				this.listenBatteryLowState();
-			} else {
+			}
+			else{
 				console.warn('tizen.systeminfo is not available.');
 			}
 		}
 	};
 
-	function onError(error) {
-		console.warn("An error occurred " + error.message);
+	function onError(error){
+		console.warn( "An error occurred " + error.message );
 	}
 	systeminfo.init();
 
-}());
+} () );

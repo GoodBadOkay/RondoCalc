@@ -247,12 +247,12 @@
 
 .numLabel {
   margin-top: -42p;
+  margin-left: 30%;
   text-align: center;
-  width: 75%;
   backgound-color: red;
   margin-top: 0em;
-  display: block;
-  width: 100%;
+  width: 5em;
+  
   border-radius: 50%;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
@@ -263,7 +263,7 @@
 }
 
 .aequals {
-  margin-top: -2em;
+  /* margin-top: -2em; */
   margin-left: -42p;
   text-align: center;
   width: 75%;
@@ -276,13 +276,13 @@
 }
 
 .amem {
-  margin-top: -1em;
-  margin-left: -42p;
+  /* margin-top: -1em; */
+  margin-left: 48%;
   text-align: center;
   width: 75%;
   backgound-color: red;
   display: block;
-  width: 100%;
+  width: 1em;
   border-radius: 50%;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);

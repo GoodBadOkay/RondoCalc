@@ -5,13 +5,15 @@
 	<title>Wearable UI</title>
 	<link rel="stylesheet"  href="lib/tau/wearable/theme/default/tau.min.css">
 	<!-- load theme file for your application -->
-	<link rel="stylesheet"  href="css/style.css">
 	<link rel="stylesheet"  href="css/circle_container.css">
+<script src="js/circle.js"></script>
 </head>
 <body>
-						<ul class='circle-container'>
-			  <li><a onclick="addToLabel(3)"  href='#'>3</a></li>
-			  <li><a onclick="addToLabel(4)"  href='#'>4</a></li>
+    <div class="ui-page ui-page-active" id="main">
+        <div class="ui-content hidden" id="main-content" data-scroll="none">
+		<ul class='circle-container'>
+			  <li><a onclick="addToLabel(3)"  href='#'>3</li>
+			  <li><a onclick="addToLabel(4)"  href='#'>4</li>
 			  <li><a onclick="addToLabel(5)"  href='#'>5</a></li>
 			  <li><a onclick="addToLabel(6)"  href='#'>6</a></li>
 			  <li><a onclick="addToLabel(7)"  href='#'>7</a></li>
@@ -27,24 +29,23 @@
         
 
          <ul class='circle-container1'>
-			    <li><a onclick="devide()" href='#'>&nbsp/</a></li>
+			    <li><a onclick="devide()" href='#'>&nbsp/</li>
 			    <li><a href='#'></a></li>
 			    <li><a href='#'></a></li>
 			    <li><a href='#'></a></li>
-			    <li><a onclick="plus()" href='#'>+</a></li>
+			    <li><a onclick="plus()" href='#'>+</li>
 			    <li><a onclick="minus()" href='#'>-</a></li>
 			    <li><a onclick="memRead()" href='#'>M</a></li>
 			    <li><a onclick="multiply()" href='#'>*</a></li>
+			    <li><a class='aequals'  onclick="calculateNow()" href='#'>  =</a></li>
 			  </ul>
-  
-
-        <a class='aequals'  onclick="calculateNow()" href='#'>  =</a>
-			  <p  class='numLabel' id="serverTime">0</p>
+			  <span  class='numLabel' id="serverTime">0</span>
         <a class='amem' onclick="memSet()" href='#'>M+</a>
+        </div>
+        </div>
 </body>
 <script type="text/javascript" src="lib/tau/wearable/js/tau.min.js"></script>
 <!-- load javascript file for your application -->
 <script src="js/app.js"></script>
 <script src="js/lowBatteryCheck.js"></script>
-<script src="js/circle.js"></script>
 </html>
