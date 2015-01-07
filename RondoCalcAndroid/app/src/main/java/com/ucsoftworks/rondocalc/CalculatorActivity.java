@@ -13,7 +13,7 @@ public class CalculatorActivity extends Activity {
     private boolean dotWasPressed = false;
     private boolean allowCompletion = false;
     private CalculatorState calculatorState = CalculatorState.NOT_QUEUED;
-    private float lastNum = 0;
+    private double lastNum = 0;
 
 
     @Override
@@ -153,16 +153,16 @@ public class CalculatorActivity extends Activity {
             case NOT_QUEUED:
                 break;
             case PLUS:
-                display.setText(String.valueOf(lastNum + currentNum));
+                setDisplayText(lastNum + currentNum);
                 break;
             case MINUS:
-                display.setText(String.valueOf(lastNum - currentNum));
+                setDisplayText(lastNum - currentNum);
                 break;
             case MUL:
-                display.setText(String.valueOf(lastNum * currentNum));
+                setDisplayText(lastNum * currentNum);
                 break;
             case DIV:
-                display.setText(String.valueOf(lastNum / currentNum));
+                setDisplayText(lastNum / currentNum);
                 if (currentNum == 0) {
                     setInitialValues();
                     return;
@@ -171,6 +171,20 @@ public class CalculatorActivity extends Activity {
         }
         lastNum = Float.valueOf(display.getText().toString());
         calculatorState = buttonType;
+    }
+
+    private void setDisplayText(double number) {
+        String result;
+        long longNum = (long) number;
+        if (number == longNum)
+            result = String.format("%d", longNum);
+        else
+            result = String.format("%s", number);
+        if (result.length() > 11)
+            result = String.format("%e", number);
+        if (result.length() > 11)
+            result = String.format("%1.3E", number);
+        display.setText(result);
     }
 
 }
