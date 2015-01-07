@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
  
-package ucsoftworks.com.rondocalc.widget;
+package com.ucsoftworks.rondocalc.widget;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -41,7 +41,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import ucsoftworks.com.rondocalc.R;
+import com.ucsoftworks.rondocalc.R;
 
 public class CircleLayout extends ViewGroup {
 

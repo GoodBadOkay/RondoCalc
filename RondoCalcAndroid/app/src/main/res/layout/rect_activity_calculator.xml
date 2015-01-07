@@ -16,7 +16,7 @@
         android:textColor="@color/equal_key"
         android:text="=" />
 
-    <ucsoftworks.com.rondocalc.widget.CircleLayout
+    <com.ucsoftworks.rondocalc.widget.CircleLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_margin="40dp"
@@ -81,9 +81,9 @@
             android:background="@drawable/operator_key_selector"
             android:clickable="true"
             android:text="/" />
-    </ucsoftworks.com.rondocalc.widget.CircleLayout>
+    </com.ucsoftworks.rondocalc.widget.CircleLayout>
 
-    <ucsoftworks.com.rondocalc.widget.CircleLayout
+    <com.ucsoftworks.rondocalc.widget.CircleLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         circle:angleOffset="-105.1">
@@ -207,5 +207,5 @@
             android:textColor="@color/num_key"
             android:clickable="true"
             android:text="C" />
-    </ucsoftworks.com.rondocalc.widget.CircleLayout>
+    </com.ucsoftworks.rondocalc.widget.CircleLayout>
 </RelativeLayout>

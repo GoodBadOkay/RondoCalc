@@ -1,4 +1,4 @@
-package ucsoftworks.com.rondocalc;
+package com.ucsoftworks.rondocalc;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -135,6 +135,10 @@ public class CalculatorActivity extends Activity {
 
     private void clearKeyPressed() {
         display.setText("0");
+        setInitialValues();
+    }
+
+    private void setInitialValues() {
         dotWasPressed = false;
         lastNum = 0;
         allowCompletion = true;
@@ -158,10 +162,11 @@ public class CalculatorActivity extends Activity {
                 display.setText(String.valueOf(lastNum * currentNum));
                 break;
             case DIV:
-                if (currentNum != 0)
-                    display.setText(String.valueOf(lastNum / currentNum));
-                else
+                display.setText(String.valueOf(lastNum / currentNum));
+                if (currentNum == 0) {
+                    setInitialValues();
                     return;
+                }
                 break;
         }
         lastNum = Float.valueOf(display.getText().toString());

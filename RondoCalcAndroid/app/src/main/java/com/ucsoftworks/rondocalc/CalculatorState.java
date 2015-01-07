@@ -1,4 +1,4 @@
-package ucsoftworks.com.rondocalc;
+package com.ucsoftworks.rondocalc;
 
 /**
  * Created by Pasenchuk Victor on 14.12.14
