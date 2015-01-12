@@ -169,7 +169,7 @@ public class CalculatorActivity extends Activity {
                 }
                 break;
         }
-        lastNum = Float.valueOf(display.getText().toString());
+        lastNum = Float.valueOf(display.getText().toString().replace(',', '.'));
         calculatorState = buttonType;
     }
 
