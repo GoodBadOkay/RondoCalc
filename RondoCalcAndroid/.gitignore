@@ -4,6 +4,10 @@
 .DS_Store
 /build
 
+
+### Java keystore
+*.jks
+
 ### Android template
 # Built application files
 *.apk
