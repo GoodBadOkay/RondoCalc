@@ -9,11 +9,18 @@ import android.widget.TextView;
 
 public class CalculatorActivity extends Activity {
 
+    private static final int MAX_DIGITS = 10;
+
     private TextView display;
-    private boolean dotWasPressed = false;
+    private boolean isCurrentNumDouble = false;
     private boolean allowCompletion = false;
+    private boolean isNaN = false;
     private CalculatorState calculatorState = CalculatorState.NOT_QUEUED;
-    private double lastNum = 0;
+
+    private boolean isLastNumDouble = false;
+
+    private long lastNumLong = 0;
+    private double lastNumDouble = 0;
 
 
     @Override
@@ -110,7 +117,7 @@ public class CalculatorActivity extends Activity {
     private void numKeyPressed(int num) {
         if (allowCompletion) {
             String displayText = display.getText().toString();
-            if (displayText.length() < 11) {
+            if (displayText.length() < MAX_DIGITS) {
                 if (displayText.equals("0")) {
                     display.setText(String.valueOf(num));
                 } else
@@ -124,8 +131,8 @@ public class CalculatorActivity extends Activity {
 
     private void dotKeyPressed() {
         String displayText = display.getText().toString();
-        if (!dotWasPressed) {
-            dotWasPressed = true;
+        if (!isCurrentNumDouble) {
+            isCurrentNumDouble = true;
             if (displayText.equals("0"))
                 display.setText("0.");
             else
@@ -139,52 +146,88 @@ public class CalculatorActivity extends Activity {
     }
 
     private void setInitialValues() {
-        dotWasPressed = false;
-        lastNum = 0;
-        allowCompletion = true;
+        isCurrentNumDouble = false;
+        lastNumDouble = 0;
+        lastNumLong = 0;
+        allowCompletion = false;
         calculatorState = CalculatorState.NOT_QUEUED;
     }
 
     private void operatorKeyPressed(CalculatorState buttonType) {
+        if (isNaN) {
+            isNaN = false;
+            display.setText("0");
+            return;
+        }
         String displayText = display.getText().toString();
-        float currentNum = Float.valueOf(displayText);
+        double currentNumDouble = Double.valueOf(displayText);
+        long currentNumLong = 0;
+        isCurrentNumDouble = isCurrentNumDouble || isLastNumDouble;
+        if (!isCurrentNumDouble)
+            currentNumLong = Long.valueOf(displayText);
         allowCompletion = false;
         switch (calculatorState) {
             case NOT_QUEUED:
                 break;
             case PLUS:
-                setDisplayText(lastNum + currentNum);
+                if (!isCurrentNumDouble)
+                    setDisplayText(lastNumLong + currentNumLong);
+                else
+                    setDisplayText(lastNumDouble + currentNumDouble);
                 break;
             case MINUS:
-                setDisplayText(lastNum - currentNum);
+                if (!isCurrentNumDouble)
+                    setDisplayText(lastNumLong - currentNumLong);
+                else
+                    setDisplayText(lastNumDouble - currentNumDouble);
                 break;
             case MUL:
-                setDisplayText(lastNum * currentNum);
+                if (!isCurrentNumDouble)
+                    setDisplayText(lastNumLong * currentNumLong);
+                else
+                    setDisplayText(lastNumDouble * currentNumDouble);
                 break;
             case DIV:
-                setDisplayText(lastNum / currentNum);
-                if (currentNum == 0) {
+                isLastNumDouble = true;
+                isCurrentNumDouble = true;
+                setDisplayText(lastNumDouble / currentNumDouble);
+                if (currentNumDouble == 0) {
                     setInitialValues();
+                    isNaN = true;
                     return;
                 }
                 break;
         }
-        lastNum = Float.valueOf(display.getText().toString().replace(',', '.'));
+        lastNumDouble = Double.valueOf(display.getText().toString());
+
+        if (!isLastNumDouble)
+            lastNumLong = Long.valueOf(display.getText().toString());
+
         calculatorState = buttonType;
+    }
+
+    private void setDisplayText(long number) {
+        String result;
+        result = String.format("%d", number);
+        displayText(number, result);
     }
 
     private void setDisplayText(double number) {
         String result;
-        long longNum = (long) number;
-        if (number == longNum)
-            result = String.format("%d", longNum);
-        else
-            result = String.format("%s", number);
-        if (result.length() > 11)
+        result = String.format("%f", number);
+        displayText(number, result);
+    }
+
+
+    private void displayText(double number, String result) {
+        if (result.length() > MAX_DIGITS) {
+            isLastNumDouble = true;
+            isCurrentNumDouble = true;
             result = String.format("%e", number);
-        if (result.length() > 11)
+        }
+        if (result.length() > MAX_DIGITS)
             result = String.format("%1.3E", number);
-        display.setText(result);
+        display.setText(result.replace(',', '.'));
     }
 
 }
