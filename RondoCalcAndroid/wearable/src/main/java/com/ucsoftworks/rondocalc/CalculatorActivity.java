@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class CalculatorActivity extends Activity {
 
     private static final int MAX_DIGITS = 10;
@@ -147,15 +149,17 @@ public class CalculatorActivity extends Activity {
 
     private void setInitialValues() {
         isCurrentNumDouble = false;
+        isLastNumDouble = false;
         lastNumDouble = 0;
         lastNumLong = 0;
-        allowCompletion = false;
+        allowCompletion = true;
         calculatorState = CalculatorState.NOT_QUEUED;
     }
 
     private void operatorKeyPressed(CalculatorState buttonType) {
         if (isNaN) {
             isNaN = false;
+            setInitialValues();
             display.setText("0");
             return;
         }
@@ -192,7 +196,7 @@ public class CalculatorActivity extends Activity {
                 isCurrentNumDouble = true;
                 setDisplayText(lastNumDouble / currentNumDouble);
                 if (currentNumDouble == 0) {
-                    setInitialValues();
+                    allowCompletion = false;
                     isNaN = true;
                     return;
                 }
@@ -208,13 +212,13 @@ public class CalculatorActivity extends Activity {
 
     private void setDisplayText(long number) {
         String result;
-        result = String.format("%d", number);
+        result = String.format(Locale.US, "%d", number);
         displayText(number, result);
     }
 
     private void setDisplayText(double number) {
         String result;
-        result = String.format("%f", number);
+        result = String.format(Locale.US, "%f", number);
         displayText(number, result);
     }
 
@@ -223,11 +227,12 @@ public class CalculatorActivity extends Activity {
         if (result.length() > MAX_DIGITS) {
             isLastNumDouble = true;
             isCurrentNumDouble = true;
-            result = String.format("%e", number);
+            result = String.format(Locale.US, "%e", number);
         }
         if (result.length() > MAX_DIGITS)
-            result = String.format("%1.3E", number);
-        display.setText(result.replace(',', '.'));
+            result = String.format(Locale.US, "%1.3E", number);
+        display.setText(result);
+        display.setText(result);
     }
 
 }
