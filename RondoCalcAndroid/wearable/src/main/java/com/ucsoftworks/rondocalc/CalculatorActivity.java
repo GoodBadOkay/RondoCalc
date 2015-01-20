@@ -16,13 +16,10 @@ public class CalculatorActivity extends Activity {
     private TextView display;
     private boolean isCurrentNumDouble = false;
     private boolean allowCompletion = false;
-    private boolean isNaN = false;
+    private boolean wasDividedByZero = false;
     private CalculatorState calculatorState = CalculatorState.NOT_QUEUED;
 
-    private boolean isLastNumDouble = false;
-
-    private long lastNumLong = 0;
-    private double lastNumDouble = 0;
+    private double lastNum = 0;
 
 
     @Override
@@ -117,6 +114,12 @@ public class CalculatorActivity extends Activity {
     }
 
     private void numKeyPressed(int num) {
+        if (wasDividedByZero) {
+            wasDividedByZero = false;
+            setInitialValues();
+            display.setText(String.valueOf(num));
+            return;
+        }
         if (allowCompletion) {
             String displayText = display.getText().toString();
             if (displayText.length() < MAX_DIGITS) {
@@ -127,19 +130,37 @@ public class CalculatorActivity extends Activity {
             }
         } else {
             allowCompletion = true;
+            isCurrentNumDouble = false;
             display.setText(String.valueOf(num));
         }
     }
 
     private void dotKeyPressed() {
-        String displayText = display.getText().toString();
-        if (!isCurrentNumDouble) {
-            isCurrentNumDouble = true;
-            if (displayText.equals("0"))
-                display.setText("0.");
-            else
-                display.setText(displayText + ".");
+        if (wasDividedByZero) {
+            wasDividedByZero = false;
+            setInitialValues();
+            initDecimalState();
+            return;
         }
+        if (allowCompletion) {
+            String displayText = display.getText().toString();
+            if (!isCurrentNumDouble) {
+                isCurrentNumDouble = true;
+                if (displayText.equals("0"))
+                    display.setText("0.");
+                else
+                    display.setText(displayText + ".");
+            }
+        }
+        else {
+            initDecimalState();
+        }
+    }
+
+    private void initDecimalState() {
+        allowCompletion = true;
+        isCurrentNumDouble = true;
+        display.setText("0.");
     }
 
     private void clearKeyPressed() {
@@ -149,89 +170,76 @@ public class CalculatorActivity extends Activity {
 
     private void setInitialValues() {
         isCurrentNumDouble = false;
-        isLastNumDouble = false;
-        lastNumDouble = 0;
-        lastNumLong = 0;
+        lastNum = 0;
         allowCompletion = true;
         calculatorState = CalculatorState.NOT_QUEUED;
     }
 
     private void operatorKeyPressed(CalculatorState buttonType) {
-        if (isNaN) {
-            isNaN = false;
+        if (wasDividedByZero) {
+            wasDividedByZero = false;
             setInitialValues();
             display.setText("0");
             return;
         }
         String displayText = display.getText().toString();
         double currentNumDouble = Double.valueOf(displayText);
-        long currentNumLong = 0;
-        isCurrentNumDouble = isCurrentNumDouble || isLastNumDouble;
-        if (!isCurrentNumDouble)
-            currentNumLong = Long.valueOf(displayText);
-        allowCompletion = false;
-        switch (calculatorState) {
-            case NOT_QUEUED:
-                break;
-            case PLUS:
-                if (!isCurrentNumDouble)
-                    setDisplayText(lastNumLong + currentNumLong);
-                else
-                    setDisplayText(lastNumDouble + currentNumDouble);
-                break;
-            case MINUS:
-                if (!isCurrentNumDouble)
-                    setDisplayText(lastNumLong - currentNumLong);
-                else
-                    setDisplayText(lastNumDouble - currentNumDouble);
-                break;
-            case MUL:
-                if (!isCurrentNumDouble)
-                    setDisplayText(lastNumLong * currentNumLong);
-                else
-                    setDisplayText(lastNumDouble * currentNumDouble);
-                break;
-            case DIV:
-                isLastNumDouble = true;
-                isCurrentNumDouble = true;
-                setDisplayText(lastNumDouble / currentNumDouble);
-                if (currentNumDouble == 0) {
-                    allowCompletion = false;
-                    isNaN = true;
-                    return;
-                }
-                break;
-        }
-        lastNumDouble = Double.valueOf(display.getText().toString());
 
-        if (!isLastNumDouble)
-            lastNumLong = Long.valueOf(display.getText().toString());
+        if (allowCompletion) {
+            allowCompletion = false;
+            switch (calculatorState) {
+                case NOT_QUEUED:
+                    break;
+                case PLUS:
+                    setDisplayText(lastNum + currentNumDouble);
+                    break;
+                case MINUS:
+                    setDisplayText(lastNum - currentNumDouble);
+                    break;
+                case MUL:
+                    setDisplayText(lastNum * currentNumDouble);
+                    break;
+                case DIV:
+                    setDisplayText(lastNum / currentNumDouble);
+                    if (currentNumDouble == 0) {
+                        allowCompletion = false;
+                        wasDividedByZero = true;
+                        return;
+                    }
+                    break;
+            }
+            lastNum = Double.valueOf(display.getText().toString());
+        }
 
         calculatorState = buttonType;
     }
 
-    private void setDisplayText(long number) {
-        String result;
-        result = String.format(Locale.US, "%d", number);
-        displayText(number, result);
-    }
 
     private void setDisplayText(double number) {
         String result;
-        result = String.format(Locale.US, "%f", number);
+        if (number == (long) number)
+            result = String.format(Locale.US, "%d", (long) number);
+        else {
+            result = String.format(Locale.US, "%f", number);
+            result = trimTrailingZeros(result);
+        }
         displayText(number, result);
     }
 
+    private static String trimTrailingZeros(String number) {
+        if (!number.contains(".")) {
+            return number;
+        }
+
+        return number.replaceAll("\\.?0*$", "");
+    }
 
     private void displayText(double number, String result) {
         if (result.length() > MAX_DIGITS) {
-            isLastNumDouble = true;
-            isCurrentNumDouble = true;
             result = String.format(Locale.US, "%e", number);
         }
         if (result.length() > MAX_DIGITS)
             result = String.format(Locale.US, "%1.3E", number);
-        display.setText(result);
         display.setText(result);
     }
 
