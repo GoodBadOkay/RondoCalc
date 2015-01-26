@@ -10,8 +10,8 @@
 
     <Button
         android:id="@+id/key_equal"
-        android:layout_width="@dimen/equal_button"
-        android:layout_height="@dimen/equal_button"
+        android:layout_width="@dimen/equal_button_round"
+        android:layout_height="@dimen/equal_button_round"
         android:layout_centerInParent="true"
         android:textColor="@color/equal_key"
         android:text="=" />
@@ -38,8 +38,8 @@
 
         <TextView
             android:id="@+id/key_plus"
-            android:layout_width="@dimen/operator_size"
-            android:layout_height="@dimen/operator_size"
+            android:layout_width="@dimen/operator_size_round"
+            android:layout_height="@dimen/operator_size_round"
             android:background="@drawable/operator_key_selector"
             android:textColor="@color/operator_key"
             android:clickable="true"
@@ -48,8 +48,8 @@
 
         <TextView
             android:id="@+id/key_minus"
-            android:layout_width="@dimen/operator_size"
-            android:layout_height="@dimen/operator_size"
+            android:layout_width="@dimen/operator_size_round"
+            android:layout_height="@dimen/operator_size_round"
             android:gravity="center"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
@@ -60,8 +60,8 @@
 
         <TextView
             android:id="@+id/key_mul"
-            android:layout_width="@dimen/operator_size"
-            android:layout_height="@dimen/operator_size"
+            android:layout_width="@dimen/operator_size_round"
+            android:layout_height="@dimen/operator_size_round"
             android:gravity="center"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
@@ -72,8 +72,8 @@
 
         <TextView
             android:id="@+id/key_divide"
-            android:layout_width="@dimen/operator_size"
-            android:layout_height="@dimen/operator_size"
+            android:layout_width="@dimen/operator_size_round"
+            android:layout_height="@dimen/operator_size_round"
             android:gravity="center"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
@@ -90,8 +90,8 @@
 
         <TextView
             android:id="@+id/key0"
-            android:layout_width="@dimen/num_key_size"
-            android:layout_height="@dimen/num_key_size"
+            android:layout_width="@dimen/num_key_size_round"
+            android:layout_height="@dimen/num_key_size_round"
             android:background="@drawable/num_key_selector"
             android:textColor="@color/num_key"
             android:clickable="true"
@@ -100,8 +100,8 @@
 
         <TextView
             android:id="@+id/key1"
-            android:layout_width="@dimen/num_key_size"
-            android:layout_height="@dimen/num_key_size"
+            android:layout_width="@dimen/num_key_size_round"
+            android:layout_height="@dimen/num_key_size_round"
             android:gravity="center"
             android:background="@drawable/num_key_selector"
             android:textColor="@color/num_key"
@@ -110,8 +110,8 @@
 
         <TextView
             android:id="@+id/key2"
-            android:layout_width="@dimen/num_key_size"
-            android:layout_height="@dimen/num_key_size"
+            android:layout_width="@dimen/num_key_size_round"
+            android:layout_height="@dimen/num_key_size_round"
             android:gravity="center"
             android:background="@drawable/num_key_selector"
             android:textColor="@color/num_key"
@@ -120,8 +120,8 @@
 
         <TextView
             android:id="@+id/key3"
-            android:layout_width="@dimen/num_key_size"
-            android:layout_height="@dimen/num_key_size"
+            android:layout_width="@dimen/num_key_size_round"
+            android:layout_height="@dimen/num_key_size_round"
             android:gravity="center"
             android:background="@drawable/num_key_selector"
             android:textColor="@color/num_key"
@@ -130,8 +130,8 @@
 
         <TextView
             android:id="@+id/key4"
-            android:layout_width="@dimen/num_key_size"
-            android:layout_height="@dimen/num_key_size"
+            android:layout_width="@dimen/num_key_size_round"
+            android:layout_height="@dimen/num_key_size_round"
             android:gravity="center"
             android:background="@drawable/num_key_selector"
             android:textColor="@color/num_key"
@@ -140,8 +140,8 @@
 
         <TextView
             android:id="@+id/key5"
-            android:layout_width="@dimen/num_key_size"
-            android:layout_height="@dimen/num_key_size"
+            android:layout_width="@dimen/num_key_size_round"
+            android:layout_height="@dimen/num_key_size_round"
             android:gravity="center"
             android:background="@drawable/num_key_selector"
             android:textColor="@color/num_key"
@@ -150,8 +150,8 @@
 
         <TextView
             android:id="@+id/key6"
-            android:layout_width="@dimen/num_key_size"
-            android:layout_height="@dimen/num_key_size"
+            android:layout_width="@dimen/num_key_size_round"
+            android:layout_height="@dimen/num_key_size_round"
             android:gravity="center"
             android:background="@drawable/num_key_selector"
             android:textColor="@color/num_key"
@@ -160,8 +160,8 @@
 
         <TextView
             android:id="@+id/key7"
-            android:layout_width="@dimen/num_key_size"
-            android:layout_height="@dimen/num_key_size"
+            android:layout_width="@dimen/num_key_size_round"
+            android:layout_height="@dimen/num_key_size_round"
             android:gravity="center"
             android:background="@drawable/num_key_selector"
             android:textColor="@color/num_key"
@@ -170,8 +170,8 @@
 
         <TextView
             android:id="@+id/key8"
-            android:layout_width="@dimen/num_key_size"
-            android:layout_height="@dimen/num_key_size"
+            android:layout_width="@dimen/num_key_size_round"
+            android:layout_height="@dimen/num_key_size_round"
             android:gravity="center"
             android:background="@drawable/num_key_selector"
             android:textColor="@color/num_key"
@@ -180,8 +180,8 @@
 
         <TextView
             android:id="@+id/key9"
-            android:layout_width="@dimen/num_key_size"
-            android:layout_height="@dimen/num_key_size"
+            android:layout_width="@dimen/num_key_size_round"
+            android:layout_height="@dimen/num_key_size_round"
             android:gravity="center"
             android:background="@drawable/num_key_selector"
             android:textColor="@color/num_key"
@@ -190,8 +190,8 @@
 
         <TextView
             android:id="@+id/keyDot"
-            android:layout_width="@dimen/num_key_size"
-            android:layout_height="@dimen/num_key_size"
+            android:layout_width="@dimen/num_key_size_round"
+            android:layout_height="@dimen/num_key_size_round"
             android:gravity="center"
             android:background="@drawable/num_key_selector"
             android:textColor="@color/num_key"
@@ -200,8 +200,8 @@
 
         <TextView
             android:id="@+id/keyC"
-            android:layout_width="@dimen/num_key_size"
-            android:layout_height="@dimen/num_key_size"
+            android:layout_width="@dimen/num_key_size_round"
+            android:layout_height="@dimen/num_key_size_round"
             android:gravity="center"
             android:background="@drawable/num_key_selector"
             android:textColor="@color/num_key"
