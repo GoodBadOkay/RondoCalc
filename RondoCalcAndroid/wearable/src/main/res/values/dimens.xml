@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="num_key_size_rect">30dp</dimen>
-    <dimen name="operator_size_rect">32dp</dimen>
-    <dimen name="equal_button_rect">42dp</dimen>
+    <dimen name="num_key_size_rect">25dp</dimen>
+    <dimen name="operator_size_rect">27dp</dimen>
+    <dimen name="equal_button_rect">37dp</dimen>
 
     <dimen name="num_key_size_round">30dp</dimen>
     <dimen name="operator_size_round">32dp</dimen>
     <dimen name="equal_button_round">42dp</dimen>
+    <dimen name="operator_margin_round">40dp</dimen>
+    <dimen name="operator_margin_rect">30dp</dimen>
 </resources>

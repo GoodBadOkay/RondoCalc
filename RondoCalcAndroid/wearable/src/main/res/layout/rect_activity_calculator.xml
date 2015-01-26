@@ -19,7 +19,7 @@
     <com.ucsoftworks.rondocalc.widget.CircleLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_margin="40dp"
+        android:layout_margin="@dimen/operator_margin_rect"
         circle:angleOffset="53.5">
 
         <TextView
@@ -29,7 +29,6 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:textColor="@color/display_text"
-            android:background="@color/white"
             android:singleLine="true"
             android:gravity="end"
             android:paddingEnd="3dp"
